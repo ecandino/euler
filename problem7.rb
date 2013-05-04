@@ -1,25 +1,10 @@
-# Largest Prime Factor
-# The prime factors of 13195 are 5, 7, 13 and 29.
-# What is the largest prime factor of the number 600851475143
+=begin
+  
+By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
 
-total = 600851475143
-b_factors = []
-factors = []
-sqrt = Math.sqrt(total)
-top = sqrt.floor
-
-(2..top).each do |i|
-  if total % i == 0
-    b_factors << i
-  end
-end
-b_factors.each do |i|
-  x = total / i
-  factors << i
-  factors << x
-end
-factors = factors.sort.reverse
-p factors
+What is the 10,001st prime number?
+  
+=end
 
 class Integer < Numeric
   
@@ -50,10 +35,16 @@ class Integer < Numeric
   end
 end
 
-factors.each do |i| 
-  if i.is_prime?
-    puts i
-    return false
+x = 0
+i = 0
+primes = []
+while i < 10002 do 
+  if x.is_prime?
+    primes << x
+    i += 1
   end
+  x += 1
 end
+primes[10000]
 
+# 104743
