@@ -74,10 +74,31 @@ while x < 16 do
   x += 1
 end
 
-puts products
-puts products.count
+# diagonals
+x = 0 
+while x < 16 do 
+  y = 0
+  while y < 16 do
+    product = rows[x][y] * rows[x+1][y+1] * rows[x+2][y+2] * rows[x+3][y+3]
+    products << product
+    y += 1
+  end
+  x += 1
+end
 
+x = 19 
+while x > 2 do 
+  y = 0
+  while y < 16 do
+    product = rows[x][y] * rows[x-1][y+1] * rows[x-2][y+2] * rows[x-3][y+3]
+    products << product
+    y += 1
+  end
+  x -= 1
+end
 
-# Still need to do diagonals
+puts products.sort.last
+
+# 70600674
 
 
