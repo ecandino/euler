@@ -13,3 +13,24 @@ Which starting number, under one million, produces the longest chain?
 
 NOTE: Once the chain starts the terms are allowed to go above one million.
 =end
+
+chains = []
+999999.downto 100 do |i|
+  x = i
+  chain = [x]
+  while x != 1 && x > 0 do
+    if x % 2 == 0
+      x = x / 2
+    else
+      x = (3*x) + 1
+    end
+    chain << x
+  end
+  hash = {number: i, chain_count: chain.count}
+  chains << hash
+end
+
+chains = chains.sort_by{|c| c[:chain_count] }
+p chains.last
+
+# 837799
